@@ -1,0 +1,5 @@
+
+> sweety-smart-students@1.0.0 start
+> cd server && node app.js
+
+MySQL connected: sweety_smart_students
