@@ -1,95 +1,376 @@
-# SkyCinema
+# 🎬 SkyCinema
 
-SkyCinema is a production-style demo movie booking system built with Node.js, Express, EJS, Socket.io, MySQL, Nodemailer OTP login, and QR ticket generation.
+## 🌌 Real-Time Multi-Theater Movie Ticket Booking Platform
 
-## Features
+### ⚡ Smart Seat Conflict Handling • 🎟 QR Tickets • 🛰 Live Synchronization
 
-- OTP-only login with 6-digit code and 5-minute expiry
-- Default admin: `admin@skycinema.com` with DEV OTP bypass `000000`
-- Three protected roles: user, admin, theatre owner
-- Exactly 4 seeded movies on the home page
-- Date-wise shows for today and tomorrow
-- 300 seats per show with GOLD and SILVER pricing
-- Real-time seat locking with Socket.io and 2-minute auto unlock
-- Booking flow without payment gateway
-- QR ticket generation and theatre-side QR scanner validation
-- Admin and theatre dashboards with booking and occupancy stats
+SkyCinema is a production-style real-time movie ticket booking platform inspired by modern cinematic ecosystems like BookMyShow, PVR, and IMAX digital booking infrastructures.
 
-## Tech Stack
+Designed using **Node.js, Express.js, Socket.io, MySQL, EJS, and QR-based validation**, the system focuses on delivering a realistic multiplex booking experience with high-speed real-time synchronization and intelligent seat conflict prevention.
 
-- Frontend: HTML, CSS, Bootstrap 5, Vanilla JavaScript, EJS
-- Backend: Node.js, Express.js, Socket.io
-- Database: MySQL
-- Other: Nodemailer, `qrcode`
+---
 
-## Environment
+# 🌟 Platform Highlights
 
-Create or update `.env` with:
+* 🎞 Live movie ticket booking
+* 🧠 Smart seat conflict detection
+* ⚡ Real-time seat synchronization
+* 🔐 OTP-based secure authentication
+* 🏙 Multi-theater & multi-screen support
+* 🎫 QR-powered digital tickets
+* 📷 Theatre-side ticket scanner
+* 📊 Advanced admin analytics
+* 🔔 Intelligent notifications system
+* 🎨 Cinematic responsive UI/UX
+* 🚀 Production-style architecture
 
-```env
+---
+
+# 🛡 Authentication System
+
+## 📨 OTP-Based Login
+
+* 6-digit OTP verification
+* 5-minute OTP expiration
+* Session-based authentication
+* Secure role authorization
+
+### 👑 Admin Quick Access
+
+Email:
+
+```txt id="h4p1xk"
+admin@skycinema.com
+```
+
+DEV OTP:
+
+```txt id="r5a9yc"
+000000
+```
+
+---
+
+# 🧩 Role-Based Ecosystem
+
+| Identity         | Permissions                                   |
+| ---------------- | --------------------------------------------- |
+| 🎟 Customer      | Browse movies, book tickets, manage bookings  |
+| 🧑‍💼 Admin      | Platform analytics, movie control, monitoring |
+| 🏢 Theatre Owner | Show management & QR validation               |
+
+---
+
+# 🎥 Entertainment Management System
+
+## 🎬 Movie Infrastructure
+
+* Dynamic movie listing engine
+* Multi-date show scheduling
+* Multi-theatre architecture
+* GOLD & SILVER seat categories
+* Theatre occupancy tracking
+
+### 📅 Supported Show Dates
+
+* Today
+* Tomorrow
+
+---
+
+# ⚡ Smart Real-Time Seat Engine
+
+## 🧠 Core Innovation of SkyCinema
+
+SkyCinema solves real-time booking conflicts using a Socket.io-driven synchronization engine.
+
+### 🔄 Seat Lock Workflow
+
+1. 👤 User selects a seat
+2. ⚡ Seat instantly locks
+3. 🌐 All users receive live update
+4. ⏳ Auto unlock after 2 minutes
+5. ✅ Booking confirmation finalizes reservation
+
+### 🎯 Advantages
+
+* Prevents duplicate booking
+* Eliminates stale seat data
+* Supports concurrent users
+* Simulates real multiplex booking
+
+---
+
+# 🎟 Digital Ticket Infrastructure
+
+After successful booking:
+
+* 🎫 Ticket generated instantly
+* 🔳 Unique QR embedded
+* 🗃 Booking stored in MySQL
+* 📁 QR images saved automatically
+
+Storage Path:
+
+```txt id="v8k3we"
+uploads/tickets/
+```
+
+---
+
+# 📷 Theatre-Side Validation System
+
+Theatre owners can validate tickets using:
+
+```txt id="v4c7ms"
+/theatre/scanner
+```
+
+### 🔍 Scanner Results
+
+* ✅ VALID
+* ❌ INVALID
+* ⚠ ALREADY USED
+
+---
+
+# 📊 Monitoring Dashboards
+
+## 🧑‍💼 Admin Control Center
+
+* User management
+* Revenue analytics
+* Booking reports
+* Review moderation
+* Occupancy statistics
+* Platform monitoring
+
+## 🏢 Theatre Operations Dashboard
+
+* Show scheduling
+* Seat occupancy tracking
+* QR ticket validation
+* Theatre analytics
+
+---
+
+# 🧠 Technology Stack
+
+## 🎨 Frontend Technologies
+
+* HTML5
+* CSS3
+* Bootstrap 5
+* Vanilla JavaScript
+* EJS
+
+## ⚙ Backend Technologies
+
+* Node.js
+* Express.js
+* Socket.io
+
+## 🗄 Database
+
+* MySQL
+
+## 🧰 Utilities & Services
+
+* Nodemailer
+* QRCode
+* JWT Authentication
+
+---
+
+# ⚙ Environment Setup
+
+Create a `.env` file:
+
+```env id="f6w3zt"
 PORT=3000
+
 DB_HOST=localhost
 DB_USER=root
 DB_PORT=3307
 DB_PASSWORD=root123
 DB_NAME=skycinema_db
+
 JWT_SECRET=skycinema_super_secret_key
 JWT_EXPIRES_IN=2d
+
 EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_app_password
+
 APP_URL=http://localhost:3000
 ```
 
-## MySQL Setup
+---
 
-1. Make sure MySQL is running and the credentials in `.env` are correct.
-2. The app auto-creates `skycinema_db` if it does not exist.
-3. The app auto-creates all required tables at startup.
-4. `database/schema.sql` and `database/seed.sql` are included for reference.
+# 🗃 Database Configuration
 
-## Install and Run
+SkyCinema automatically:
 
-```bash
+* 🛠 Creates database
+* 📑 Generates required tables
+* 🌱 Seeds demo content
+
+Reference Files:
+
+```txt id="x7t4pe"
+database/schema.sql
+database/seed.sql
+```
+
+---
+
+# 🚀 Run The Project
+
+## 📦 Install Dependencies
+
+```bash id="w3m8ds"
 npm install
+```
+
+## ▶ Start Development Server
+
+```bash id="t8v4ra"
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+Open:
 
-## OTP Test
+```txt id="o5k7pl"
+http://localhost:3000
+```
 
-1. Open `/login`
-2. Enter any email to receive OTP
-3. In demo/dev mode the API response also returns the OTP to the browser flow
-4. Admin shortcut: login with `admin@skycinema.com` and OTP `000000`
+---
 
-## Booking Test
+# 🧪 OTP Login Testing
 
-1. Open the home page
-2. Select a movie
-3. Choose a future show
-4. Login as a user if needed
-5. Lock seats on the seat map
-6. Click `Get Ticket`
-7. Seats become booked and the ticket page opens
+## 🔐 Login Flow
 
-## QR Test
+1. Open:
 
-1. Book a ticket
-2. Open the ticket page and confirm the QR is visible
-3. Login as a theatre owner, open `/theatre/scanner`
-4. Scan the QR and verify it returns `VALID`
+```txt id="z6r2ma"
+/login
+```
 
-## Seeded Demo Data
+2. Enter email
 
-- Movies: `RRR`, `KGF`, `Pushpa`, `Interstellar`
-- Theatres: `PVR Hyderabad`, `INOX Bangalore`, `Cinepolis Chennai`, `AMB Hyderabad`
-- Each theatre starts with `Screen 1`
-- Show times: `10:00`, `13:00`, `16:00`, `20:00`
-- Shows are generated for today and tomorrow
+3. OTP will:
 
-## Notes
+* 📩 Send through mail
+* 🧪 Return in dev response
 
-- Payment integration is intentionally removed.
-- Booking completes immediately on `Get Ticket`.
-- QR images are written to `uploads/tickets`.
+### 👑 Admin Shortcut
+
+```txt id="g2f8ln"
+Email: admin@skycinema.com
+OTP: 000000
+```
+
+---
+
+# 🎟 Ticket Booking Flow
+
+1. 🏠 Open homepage
+2. 🎬 Select movie
+3. 🏢 Choose theatre
+4. ⏰ Pick show timing
+5. 🔐 Login if required
+6. 💺 Select seats
+7. ⚡ Observe live locking
+8. 🎫 Click:
+
+```txt id="m8x2qy"
+Get Ticket
+```
+
+9. ✅ QR ticket generated
+
+---
+
+# 📷 QR Validation Demo
+
+1. 🎟 Book ticket
+2. 🔳 Open ticket QR
+3. 🏢 Login as theatre owner
+4. 📷 Open:
+
+```txt id="u6b3tk"
+/theatre/scanner
+```
+
+5. 🔍 Scan QR
+6. ✅ Validate ticket
+
+---
+
+# 🎬 Seeded Demo Universe
+
+## 🎞 Movies
+
+* RRR
+* KGF
+* Pushpa
+* Interstellar
+
+## 🏢 Theatres
+
+* PVR Hyderabad
+* INOX Bangalore
+* Cinepolis Chennai
+* AMB Hyderabad
+
+## ⏰ Show Timings
+
+* 10:00 AM
+* 01:00 PM
+* 04:00 PM
+* 08:00 PM
+
+## 💺 Seat Capacity
+
+* 300 seats per show
+* GOLD & SILVER zones
+
+---
+
+# 🔮 Future Enhancements
+
+* 💳 Razorpay/Stripe integration
+* 🤖 AI seat recommendations
+* 📱 Android/iOS mobile apps
+* 📈 Revenue prediction analytics
+* 🌩 Cloud deployment
+* 🔔 Push notifications
+* 🎯 Dynamic pricing engine
+* 🛰 Live theatre occupancy heatmaps
+
+---
+
+# 🛡 Important Notes
+
+* 💳 Payment gateway intentionally removed
+* ⚡ Booking confirms instantly on:
+
+```txt id="s9e1vw"
+Get Ticket
+```
+
+* 🧠 Smart seat conflict handling is the primary research innovation
+
+---
+
+# 👨‍💻 Academic Project
+
+### 🎓 B.Tech RTRP / PBL Project
+
+Department of Computer Science & Engineering (Cyber Security)
+Sphoorthy Engineering College
+
+---
+
+# 🎞 SkyCinema
+
+> 🌌 “Experience the Future of Real-Time Movie Booking.”
