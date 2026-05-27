@@ -119,8 +119,8 @@ npm run build
 
 Admin:
 
-- Email: `nvn@gmail.com`
-- Password: `nvn-svcn-1`
+- Email: `adminn@gmail.com`
+- Password: `admin@123`
 
 Student:
 
@@ -129,7 +129,7 @@ Student:
 
 Faculty:
 
-- ID or email: `FAC001` or `faculty@sweety.edu`
+- ID or email: `FAC001` or `faculty@sphoorthy.edu`
 - Password: `faculty123`
 
 Cyber Security student:
