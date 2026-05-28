@@ -1,0 +1,111 @@
+/* RESET & BASICS */
+* { box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 40px 20px;
+  /* f3f4f6 */
+  display: flex;
+  justify-content: center;
+  color: #333;
+}
+
+/* AUTH BOX (Login/Register) */
+.auth-container {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* DASHBOARD CONTAINER */
+.dashboard-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+h1 { margin: 0; font-size: 1.8rem; color: #111; }
+
+/* FORMS */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  margin-bottom: 25px;
+  border: 1px solid #e5e7eb;
+}
+
+h3 { margin-top: 0; color: #4b5563; font-size: 1.1rem; margin-bottom: 15px;}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  gap: 15px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+input:focus, select:focus { outline: none; border-color: #2563eb; }
+
+/* BUTTONS */
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  width: 100%;
+}
+button:hover { opacity: 0.9; }
+
+.btn-primary { background-color: #2563eb; color: white; } /* Blue */
+.btn-secondary { background-color: #cbd5e1; color: #334155; width: auto; } /* Gray */
+.btn-danger { background-color: #ef4444; color: white; width: auto; padding: 6px 12px; font-size: 0.85rem;} /* Red */
+
+/* LIST ITEMS */
+.lead-item {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.lead-details strong { font-size: 1.1rem; display: block; color: #1f2937; }
+.lead-meta { color: #6b7280; font-size: 0.9rem; margin-top: 5px; line-height: 1.5; }
+.lead-badge {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+/* UTILITIES */
+.link { color: #2563eb; cursor: pointer; text-decoration: underline; }
+.full-width { grid-column: span 2; }
