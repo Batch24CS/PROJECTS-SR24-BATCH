@@ -1,0 +1,170 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Effective Financial Expenditure Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- NAV / HEADER -->
+    <header>
+      <h1>Effective Financial Expenditure Tracker</h1>
+      <div id="auth-links">
+        <button id="show-login">Login</button>
+        <button id="show-register">Register</button>
+      </div>
+    </header>
+
+    <!-- REGISTER -->
+    <main>
+      <section id="register-section" class="panel hidden">
+        <h2>Register</h2>
+        <form id="register-form"><br><br><br>
+          <label>Username<input type="text" id="reg-username" required></label>
+          <label>Password<input type="password" id="reg-password" required></label>
+          <label>Re-enter Password<input type="password" id="reg-password2" required></label><br>
+          <button type="submit">Register</button>
+           <p>Existing user? <a href="#" id="to-login-1">Login now</a></p>
+        </form>
+       
+      </section>
+
+      <!-- LOGIN -->
+      <section id="login-section" class="panel hidden">
+        <h2>Login</h2>
+        <form id="login-form"><br><br><br>
+          <label>Username<input type="text" id="login-username" required></label>
+          <label>Password<input type="password" id="login-password" required></label><br>
+          <button type="submit">Login</button>
+          <p>New here? <a href="#" id="to-register-1">Register</a></p>
+        </form>
+      </section>
+
+      <!-- DASHBOARD -->
+      <section id="dashboard" class="panel hidden">
+        <aside id="sidebar">
+          <div class="profile">Logged in as <span id="user-display"></span></div>
+          <nav>
+            <button data-show="profile">My Profile</button>
+            <button data-show="family">Add & View Family Member</button>
+            <button data-show="expenses">My Expenses</button>
+            <button data-show="budgets">My Budgets</button>
+            <button data-show="member-expenses">Family Member Expenses</button>
+            <button data-show="badges">My Badges</button>
+            <button data-show="alerts">Overspend Alerts</button>
+            <button data-show="reminder">Set Daily Reminder</button>
+            <hr>
+            <button id="logout">Log Out</button>
+            <button id="delete-account">Delete Account</button>
+          </nav>
+        </aside>
+
+        <section id="content">
+          <!-- Profile -->
+          <div id="profile" class="page hidden">
+            <h2>My Profile</h2>
+            <p>Welcome to your dashboard. Use the sidebar to navigate features.</p>
+          </div>
+
+          <!-- Family -->
+          <div id="family" class="page hidden">
+            <h2>Add & View Family Members</h2>
+            <form id="add-member-form">
+              <label>Member Name<input type="text" id="member-name" required></label>
+              <label>Member Password<input type="password" id="member-password" required></label>
+              <label>Re-enter Password<input type="member-password2" type="password" id="member-password2" required></label>
+              <button type="submit">Add</button>
+            </form>
+            <h3>Added Accounts</h3>
+            <ul id="family-list"></ul>
+            <div id="family-profile-view" class="subpage hidden">
+              <h3>Member Profile</h3>
+              <p><strong>Name:</strong> <span id="fam-name"></span></p>
+              <p><strong>Password:</strong> <span id="fam-pass"></span></p>
+            </div>
+
+          </div>
+
+          <!-- Expenses -->
+          <div id="expenses" class="page hidden">
+            <h2>My Expenses</h2>
+            <form id="expense-form">
+              <label>Date<input type="date" id="expense-date" required></label>
+              <label>Category<input type="text" id="expense-category" placeholder="e.g., Groceries" required></label>
+              <label>Amount<input type="number" id="expense-amount" min="0" required></label>
+              <label>Paid By<select id="expense-owner"></select></label>
+              <button type="submit">Add Expense</button>
+            </form>
+            <h3>Expenses Table</h3>
+            <table id="expenses-table">
+              <thead><tr><th>Date</th><th>Category</th><th>Amount</th><th>Owner</th><th>Action</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <!-- Budgets -->
+          <div id="budgets" class="page hidden">
+            <h2>My Budgets</h2>
+            <form id="budget-form">
+              <label>Category<input type="text" id="budget-category" placeholder="e.g., Groceries" required></label>
+              <label>Budget Amount<input type="number" id="budget-amount" min="0" required></label>
+              <button type="submit">Set / Update Budget</button>
+            </form>
+            <h3>Budgets</h3>
+            <table id="budgets-table">
+              <thead><tr><th>Category</th><th>Budget</th><th>Spent</th><th>Remaining</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <!-- Member Expenses -->
+          <div id="member-expenses" class="page hidden">
+            <h2>Family Member wise Expenses</h2>
+            <label>Choose Member<select id="member-select"></select></label>
+            <table id="member-expenses-table">
+              <thead><tr><th>Date</th><th>Category</th><th>Amount</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <!-- Badges -->
+          <div id="badges" class="page hidden">
+            <h2>My Badges</h2>
+            <div id="badges-list"></div>
+          </div>
+
+          <!-- Alerts -->
+          <div id="alerts" class="page hidden">
+            <h2>Overspend Alerts</h2>
+            <table id="alerts-table">
+              <thead><tr><th>Date</th><th>Category</th><th>Price</th><th>Budget Set</th><th>Overspend</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <!-- Reminder -->
+          <div id="reminder" class="page hidden">
+            <h2>Set Daily Reminder</h2>
+            <p>Give us a time to remind you regarding your Daily expenditure Log entry. (Reminder works while page is open.)</p>
+            <form id="reminder-form">
+              <label>Daily Reminder Time<input type="time" id="reminder-time" required></label>
+              <button type="submit">Set Reminder</button>
+            </form>
+            <p id="reminder-status"></p>
+          </div>
+
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <small>Creators:B.Nandini,D.Rithika,Sruthi,Sushmitha </small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

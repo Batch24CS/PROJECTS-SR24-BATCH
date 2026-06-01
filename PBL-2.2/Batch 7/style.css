@@ -1,0 +1,223 @@
+:root {
+--accent: #6366f1;
+--accent-hover: #4f46e5;
+--muted: #6b7280;
+--bg: #eef2ff;
+--card: rgba(255,255,255,0.55);
+--glass: rgba(255,255,255,0.25);
+--text: #111;
+--radius: 14px;
+--shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Inter, system-ui, Arial, sans-serif;
+}
+body {
+background: var(--bg);
+color: var(--text);
+min-height: 100vh;
+backdrop-filter: blur(5px);
+overflow-x: hidden;
+}
+ header {
+background: linear-gradient(90deg, #4f46e5, #9333ea);
+color: white;
+padding: 18px 22px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: var(--shadow);
+animation: fadeSlideDown 0.8s ease;
+}
+@keyframes fadeSlideDown {
+from {opacity: 0; transform: translateY(-15px)}
+to {opacity: 1; transform: translateY(0)}
+}
+header h1 {
+margin: 0;
+font-size: 22px;
+font-weight: 600;
+}
+header button {
+background: transparent;
+border: 1px solid rgba(255,255,255,0.4);
+color: white;
+padding: 8px 12px;
+border-radius: var(--radius);
+margin-left: 10px;
+transition: all 0.25s;
+cursor: pointer;
+}
+header button:hover {
+background: rgba(255,255,255,0.2);
+transform: translateY(-2px);
+}
+main {
+display: flex;
+gap: 22px;
+padding: 20px;
+}
+.panel {
+width: 100%;
+display: flex;
+}
+.hidden {
+display: none;
+}
+#dashboard {
+display: flex;
+width: 100%;
+gap: 18px;
+}
+#sidebar {
+width: 260px;
+background: var(--card);
+border-radius: var(--radius);
+padding: 16px;
+backdrop-filter: blur(18px);
+box-shadow: var(--shadow);
+animation: fadeLeft 0.6s ease;
+}
+@keyframes fadeLeft {
+from {opacity: 0; transform: translateX(-20px)}
+to {opacity: 1; transform: translateX(0)}
+}
+#sidebar .profile {
+font-weight: 600;
+margin-bottom: 16px;
+font-size: 15px;
+}
+#sidebar nav button {
+width: 100%;
+text-align: left;
+padding: 10px;
+border: none;
+background: transparent;
+border-radius: var(--radius);
+margin-bottom: 8px;
+cursor: pointer;
+transition: 0.25s;
+font-size: 14px;
+}
+#sidebar nav button:hover {
+background: var(--accent);
+color: white;
+transform: translateX(4px);
+}
+#content {
+flex: 1;
+padding: 12px;
+}
+.page {
+background: var(--card);
+padding: 18px;
+border-radius: var(--radius);
+backdrop-filter: blur(18px);
+box-shadow: var(--shadow);
+animation: fadeUp 0.6s ease;
+}
+@keyframes fadeUp {
+from {opacity: 0; transform: translateY(20px)}
+to {opacity: 1; transform: translateY(0)}
+}
+form {
+display: flex;
+flex-wrap: wrap;
+gap: 16px;
+margin-top: 16px;
+}
+form label {
+flex: 1 1 250px;
+display: flex;
+flex-direction: column;
+gap: 6px;
+font-size: 15px;
+font-weight: 500;
+}
+input,
+select,
+button {
+padding: 10px;
+border-radius: var(--radius);
+border: 1px solid #d1d5db;
+background: white;
+transition: 0.25s;
+}
+input:focus,
+select:focus {
+border-color: var(--accent);
+outline: none;
+transform: scale(1.02);
+}
+button[type="submit"] {
+background: var(--accent);
+color: white;
+font-weight: 600;
+border: none;
+}
+button[type="submit"]:hover {
+background: var(--accent-hover);
+transform: translateY(-2px);
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 12px;
+border-radius: var(--radius);
+overflow: hidden;
+}
+thead th {
+background: #e9eafe;
+padding: 10px;
+text-align: left;
+font-size: 14px;
+font-weight: 600;
+}
+tbody td {
+padding: 10px;
+border-top: 1px solid #e5e7eb;
+font-size: 14px;
+}
+tbody tr:hover {
+background: rgba(99,102,241,0.06);
+transition: 0.25s;
+}
+ #family-list li {
+padding: 10px;
+border: 1px dashed #c7c7c7;
+margin-bottom: 6px;
+border-radius: var(--radius);
+transition: 0.25s;
+}
+#family-list li:hover {
+background: #ede9fe;
+transform: translateY(-2px);
+}
+#badges-list .badge {
+display: inline-block;
+padding: 12px;
+border-radius: var(--radius);
+background: #ede9fe;
+margin: 6px;
+border: 1px solid #ddd;
+font-weight: 600;
+animation: pop 0.4s ease;
+}
+@keyframes pop {
+0% {transform: scale(0.7); opacity: 0;}
+100% {transform: scale(1); opacity: 1;}
+}
+footer {
+padding: 16px;
+text-align: center;
+color: var(--muted);
+margin-top: 22px;
+font-size: 14px;
+}
+@media(max-width: 900px) {
+main {flex-direction: column;}
+#sidebar {width: 100%;}
+}
